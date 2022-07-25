@@ -6,6 +6,7 @@ let getVal = function() {
         console.log(val);
         squareRoot(val);
         prime(val);
+        factors(val);
     } 
 }
 
@@ -33,4 +34,16 @@ function isPrime(num) {
         }
     }
     return true    
+}
+
+function factors(num) {
+    let factorArray = [];
+        
+    for (let i = 1; i <= num; i++) {
+        if (num % i === 0) {
+            factorArray.push(i);
+        }
+    }
+    let answer = `The factors of ${num} are ${factorArray.join(' ')}`
+    console.log(answer);
 }
