@@ -7,6 +7,9 @@ let getVal = function() {
         squareRoot(val);
         prime(val);
         factors(val);
+        listPrimes(val);
+        naturalLogarithm(val);
+        toBinary(val);
     } 
 }
 
@@ -21,6 +24,17 @@ let prime = function(val) {
     } else {
         console.log(`${val} is not a Prime Number`)
     }
+}
+
+let listPrimes = function(val) {
+    let primeArray = [];
+    for (let i = 0; i < val; i++) {
+        if(isPrime(i) === true) {
+            primeArray.push(i)
+        }
+    }
+    let list = `Prime numbers less than ${val} are ${primeArray.join(' ')}`
+    console.log(list);
 }
 
 function isPrime(num) {
@@ -46,4 +60,19 @@ function factors(num) {
     }
     let answer = `The factors of ${num} are ${factorArray.join(' ')}`
     console.log(answer);
+}
+
+function naturalLogarithm(num) {
+    let log = Math.log(num)
+    console.log(`The natural logarithm of ${num} is ${log}`)
+}
+
+function toBinary(number) {
+    let num = number
+    let binary = (num % 2).toString();
+    for (; num > 1; ) {
+        num = parseInt(num / 2);
+        binary = (num % 2) + (binary);
+    }
+    console.log(`${number} in binary is ${binary}`)
 }
