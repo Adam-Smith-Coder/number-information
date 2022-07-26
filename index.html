@@ -11,8 +11,10 @@
             <h2>Enter a positive number below:</h2>
             <label for="numberSearch">Enter Number</label>
             <input type="text" id="numberSearch" autocomplete="off">
-            <button onclick="getVal()">Search</button>
+            <button onclick="getVal()">Search</button><button onclick="location.reload()">Clear</button>
+            <div class="answers" id="answers">
+            </div>
         </div>
     </body>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </html>

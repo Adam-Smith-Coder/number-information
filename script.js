@@ -1,40 +1,55 @@
+const answerText = document.createElement('p');
+answerText.classList.add('answerText');
+
 let getVal = function() {
     const val = document.querySelector('input').value;
     if (isNaN(val)) {
-        console.log('ERROR')
+        alert('Please insert a number greater than 0')
     } else {
-        console.log(val);
-        squareRoot(val);
-        prime(val);
-        factors(val);
-        listPrimes(val);
-        naturalLogarithm(val);
-        toBinary(val);
+        calculate(val);
     } 
+}
+
+let calculate = function(val) {
+    squareRoot(val);
+    prime(val);
+    factors(val);
+    listPrimes(val);
+    naturalLogarithm(val);
+    toBinary(val);
 }
 
 function squareRoot(num) {
     let sqrRoot = Math.sqrt(num);
-    console.log(`the square root of ${num} is ${sqrRoot}`)
+    const answerText1 = document.createElement('p');
+    answerText1.classList.add('answerText');
+    answerText1.textContent = `the square root of ${num} is ${sqrRoot}`
+    document.getElementById('answers').appendChild(answerText1);
 }
 
 let prime = function(val) {
+        const answerText2 = document.createElement('p');
+        answerText2.classList.add('answerText');
     if (isPrime(val) === true) {
-        console.log(`${val} is a Prime Number`)
+        answerText2.textContent = `${val} is a Prime Number`
+        document.getElementById('answers').appendChild(answerText2);
     } else {
-        console.log(`${val} is not a Prime Number`)
+        answerText2.textContent = `${val} is not a Prime Number`
+        document.getElementById('answers').appendChild(answerText2);
     }
 }
 
 let listPrimes = function(val) {
     let primeArray = [];
+    const answerText3 = document.createElement('p');
+    answerText3.classList.add('answerText');
     for (let i = 0; i < val; i++) {
         if(isPrime(i) === true) {
             primeArray.push(i)
         }
     }
-    let list = `Prime numbers less than ${val} are ${primeArray.join(' ')}`
-    console.log(list);
+    answerText3.textContent = `Prime numbers less than ${val} are ${primeArray.join(' ')}`
+    document.getElementById('answers').appendChild(answerText3);
 }
 
 function isPrime(num) {
@@ -52,19 +67,23 @@ function isPrime(num) {
 
 function factors(num) {
     let factorArray = [];
-        
+    const answerText4 = document.createElement('p');
+    answerText4.classList.add('answerText');
     for (let i = 1; i <= num; i++) {
         if (num % i === 0) {
             factorArray.push(i);
         }
     }
-    let answer = `The factors of ${num} are ${factorArray.join(' ')}`
-    console.log(answer);
+    answerText4.textContent = `The factors of ${num} are ${factorArray.join(' ')}`
+    document.getElementById('answers').appendChild(answerText4);
 }
 
 function naturalLogarithm(num) {
     let log = Math.log(num)
-    console.log(`The natural logarithm of ${num} is ${log}`)
+    const answerText5 = document.createElement('p');
+    answerText5.classList.add('answerText');
+    answerText5.textContent = `The natural logarithm of ${num} is ${log}`
+    document.getElementById('answers').appendChild(answerText5);
 }
 
 function toBinary(number) {
@@ -74,5 +93,8 @@ function toBinary(number) {
         num = parseInt(num / 2);
         binary = (num % 2) + (binary);
     }
-    console.log(`${number} in binary is ${binary}`)
+    const answerText6 = document.createElement('p');
+    answerText6.classList.add('answerText');
+    answerText6.textContent = `${number} in binary is ${binary}`
+    document.getElementById('answers').appendChild(answerText6);
 }
