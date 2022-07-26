@@ -3,7 +3,7 @@ answerText.classList.add('answerText');
 
 let getVal = function() {
     const val = document.querySelector('input').value;
-    if (isNaN(val)) {
+    if (isNaN(val) || val === "" || val <= 0) {
         alert('Please insert a number greater than 0')
     } else {
         calculate(val);
@@ -23,7 +23,7 @@ function squareRoot(num) {
     let sqrRoot = Math.sqrt(num);
     const answerText1 = document.createElement('p');
     answerText1.classList.add('answerText');
-    answerText1.textContent = `the square root of ${num} is ${sqrRoot}`
+    answerText1.textContent = `The square root of ${num} is ${sqrRoot}`
     document.getElementById('answers').appendChild(answerText1);
 }
 
